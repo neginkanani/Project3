@@ -40,9 +40,9 @@ def index():
 def about_us():
     return render_template("about.html")
 
-@app.route("/breweries.html")
+@app.route("/Breweries.html")
 def breweries():
-    return render_template("breweries.html")
+    return render_template("Breweries.html")
 
 @app.route("/faq.html")
 def faq():
