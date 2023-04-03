@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+	<!-- Kelly's bar chart from chart.js -->
+
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brewery Bar Chart</title>
+	<style>
+		* {
+		  margin: 0;
+		  padding: 0;
+		  font-family: sans-serif;
+		}
+		.chartMenu {
+		  width: 100vw;
+		  height: 40px;
+		  background: #1A1A1A;
+		  color: rgb(189, 192, 194);
+		}
+		.chartMenu p {
+		  padding: 10px;
+		  font-size: 20px;
+		}
+		.chartCard {
+		  width: 100vw;
+		  height: calc(100vh - 40px);
+		  background: rgba(54, 162, 235, 0.2);
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+		.chartBox {
+		  width: 60%;
+		  padding: 20px;
+		  border-radius: 20px;
+		  border: solid 3px rgb(207, 211, 214);
+		  background: white;
+		}
+		</style>
+
+
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+ <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="well jumbotron text-center w-100" style="background-color: #bd8b41;">
+          <!-- Jumbotron -->
+
+          <h1 class="mb-5 h2">Top Rated Breweries</h1>
+
+          <p>
+            Use the interactive charts below to explore the msot famouse breweries in the world
+          </p>
+        </div>
+<div id="chartContainer2">
+	<body>
+		<!-- <div class="chartMenu">
+		  <p></p> (Chart JS <span id="chartVersion"></span>)</p>
+		</div> -->
+		<div class="chartCard">
+		  <div class="chartBox">
+			<canvas id="myChart"></canvas>
+		  </div>
+		</div>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+		<script>
+
+
+    const ctx = document.getElementById('myChart');
+    d3.json("/data/brewery_untappd_export_MD.json", function (data) {
+
+
+      console.log(data);
+
+	let unique = [...new Set(data.map(item => item.brewery_type))];
+	console.log(unique);
+
+	//var data = // your data here
+	var categories = data.reduce(function(acc, crime) {
+  	if (!acc[crime.brewery_type])   // if current category not in acc object
+    	acc[crime.brewery_type] = 1;  // add it to acc with value 1
+  		else                        // otherwise (it exists), so
+    	acc[crime.brewery_type]++;    // increment it
+  	return acc;
+	}, {});
+	console.log(categories);
+	console.log(categories["brewery_type"]);
+	let types = Object.keys(categories);
+	let count = Object.values(categories);
+	console.log(types);
+	console.log(count);
+
+	new Chart(ctx, {
+    	type: 'bar',
+		data: {
+		labels: types,
+		datasets: [{
+			label: 'Count',
+			data: count,
+			borderWidth: 1
+		}]
+    	},
+    	options: {
+      	scales: {
+        	y: {
+          	beginAtZero: true
+        	}
+      	},
+		plugins: {
+			tooltip:{
+				enabled:false
+			},
+				//remove the legned box so that the doughnut chart is 
+			legend: {
+				display: false
+			}
+    	}
+	}
+  	});
+	
+    	});
+  </script>
+</body>
+
+
+
+
