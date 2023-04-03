@@ -5,6 +5,8 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <title>Brewery Bar Chart</title>
 	<style>
 		* {
@@ -15,8 +17,8 @@
 		.chartMenu {
 		  width: 100vw;
 		  height: 40px;
-		  background: #1A1A1A;
-		  color: rgb(189, 192, 194);
+		  background: #f5f0f0;
+		  color: rgb(247, 250, 252);
 		}
 		.chartMenu p {
 		  padding: 10px;
@@ -25,7 +27,7 @@
 		.chartCard {
 		  width: 100vw;
 		  height: calc(100vh - 40px);
-		  background: rgba(54, 162, 235, 0.2);
+		  background: rgba(224, 201, 173, 0.6);
 		  display: flex;
 		  align-items: center;
 		  justify-content: center;
@@ -34,11 +36,31 @@
 		  width: 60%;
 		  padding: 20px;
 		  border-radius: 20px;
-		  border: solid 3px rgb(207, 211, 214);
+		  border: solid 3px rgb(211, 214, 207);
 		  background: white;
+		  
 		}
 		</style>
+<!-- <div class="bg-image text-center shadow-1-strong rounded mb-5 text-black" style="background-image: url('../static/img/beer-craft-beer-brewery-alcohol.jpg');
+height:100vh;"> -->
 
+  <div class="mask" style="background-color: rgba(224, 201, 173, 0.6);
+height:100vh;">
+	<div class="container">
+	  <div class="row">
+		<!-- <div class="col-sm-6 col-md-4 col-lg-3"> </div> -->
+		<header class="d-flex justify-content-left py-8">
+		  <ul class="nav nav-pills">
+			<li class="nav-item" style="font-size: 1.2pc;"><a href="#" class="nav-link active"
+				aria-current="page">Home</a></li>
+			<li class="nav-item" style="font-size: 1.2pc;"><a href="/Breweries.html" class="nav-link">Breweries</a>
+			</li>
+			<li class="nav-item" style="font-size: 1.2pc;"><a href="#" class="nav-link">FAQs</a></li>
+			<li class="nav-item" style="font-size: 1.2pc;"><a href="#" class="nav-link">About</a></li>
+		  </ul>
+		  <hr>
+		  </hr>
+		</header>
 
 <script src="http://d3js.org/d3.v4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -102,9 +124,13 @@
 		datasets: [{
 			label: 'Count',
 			data: count,
-			borderWidth: 1
+			borderWidth: 2
 		}]
     	},
+		backgroundColor: [
+          'rgba(255, 26, 104, 0.2)', //90% has color
+          'transparent'
+	],
     	options: {
       	scales: {
         	y: {
@@ -124,9 +150,24 @@
   	});
 	
     	});
+		chart.update()
   </script>
 </body>
-
+<!-- <div class="container">
+	<footer class="py-3 my-4">
+	  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+		<li class="nav-item" style="font-size: 1.2pc;"><a href="#"
+			class="nav-link px-2 text-body-secondary">Home</a></li>
+		<li class="nav-item" style="font-size: 1.2pc;"><a href="#"
+			class="nav-link px-2 text-body-secondary">Breweries</a></li>
+		<li class="nav-item" style="font-size: 1.2pc;"><a href="#"
+			class="nav-link px-2 text-body-secondary">FAQs</a></li>
+		<li class="nav-item" style="font-size: 1.2pc;"><a href="#"
+			class="nav-link px-2 text-body-secondary">About</a></li>
+	  </ul>
+	  <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+	</footer>
+  </div> -->
 
 
 
