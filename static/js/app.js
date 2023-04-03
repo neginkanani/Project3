@@ -1,5 +1,6 @@
 const url = "api/brewery_untappd_export_MD.json";
 
+// read data from html.
 
 d3.json(url).then(function(x) {
     console.log(x);
@@ -103,7 +104,8 @@ d3.select("table").remove();
         //give the table an id
         .attr("id", "BrewType")
         .style("border-collapse", "collapse")
-        .style("border", "2px black solid");
+        .style("border", "2px black solid")
+        .style("background-color","white");
         var thead = table.append('thead')
         var	tbody = table.append('tbody');
     
@@ -245,11 +247,12 @@ function Citi(selectedCiti){
             d3.select("table").remove();
             // copyrigh to : https://gist.github.com/jfreels/6733593 and to https://www.htmlgoodies.com/javascript/bring-your-data-to-life-with-d3-js/
                 function tabulate(data, columns) {
-                    var table = d3.select('.col-md-5').append('table')
+                    var table = d3.select('.col-md-6').append('table')
                     //give the table an id
                     .attr("id", "BrewType")
                     .style("border-collapse", "collapse")
-                    .style("border", "2px black solid");
+                    .style("border", "2px black solid")
+                    .style("background-color","white");
                     var thead = table.append('thead')
                     var	tbody = table.append('tbody');
                 
@@ -263,7 +266,7 @@ function Citi(selectedCiti){
                     .style("padding", "5px")
                     .style("background-color", "orange")
                     .style("font-weight", "bold")
-                    .style("text-transform", "uppercase")
+                    .style("text-transform", "uppercase");
             
                         
             
@@ -325,27 +328,7 @@ function optionChangedT(selectedType){
         
        }
 
-// Create the tile layer that will be the background of our map.
-if ('IntersectionObserver' in window) {
-    // Use IntersectionObserver API
-  } else {
-    // Use fallback logic
-  }
-  
 
-var streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-});
-
-// Create the map with our layers.
-var map = L.map("map-id", {
-    center: [40.73, -74.0059],
-    zoom: 5
-   });
-    
-  // Add our "streetmap" tile layer to the map.
-  streetmap.addTo(map);
-  d3.json("../data/brewery_list.geojson").then((data)=>{console.log(data);L.geojson(data,{pointToLayer:function(feature,coords){return L.circleMarker(coords)}})})
 // function optionChanged(y){
 //         console.log(y)
         
