@@ -15,70 +15,85 @@
   <div class="b-example-divider"></div>
   <div class="container">
     <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3"> </div>
-    <header class="d-flex justify-content-left py-8">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" style="color: black;">Home</a></li>
-        <li class="nav-item"><a href="breweries.html" class="nav-link" style="color: black;">Breweries</a></li>
-        <li class="nav-item"><a href="faq.html" class="nav-link" style="color: black;">FAQs</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link" style="color: black;">About</a></li>
-      </ul>
+      <div class="col-sm-6 col-md-4 col-lg-3"> </div>
+      <header class="d-flex justify-content-left py-8">
+        <ul class="nav nav-pills">
+          <li class="nav-item" style="font-size: 1.2pc;"><a href="#" class="nav-link active"
+              aria-current="page">Home</a></li>
+          <li class="nav-item" style="font-size: 1.2pc;"><a href="breweries.html" class="nav-link">Breweries</a>
+          </li>
+          <li class="nav-item" style="font-size: 1.2pc;"><a href="faq.html" class="nav-link">FAQs</a></li>
+          <li class="nav-item" style="font-size: 1.2pc;"><a href="about.html" class="nav-link">About</a></li>
+        </ul>
       <hr></hr>
     </header>
   </div>
-  </div>
+</div>
     <!-- Jumbotron -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="well jumbotron text-center w-100" style="background-color: #bd8b41;">
-        
-          <h1 class="mb-5 h2">Top Rated Breweries</h1>
+          <div id="logo"><img src="/static/img/beer.png">
+          <h1 class="mb-5 h2">Frequently Asked Questions</h1>
 
         </div>
-        <h1> Frequently Asked Questions</h1>
+        <!-- <h1> Frequently Asked Questions</h1> -->
       </div>
-      <h1 class="text-body-emphasis">What are the different kinds of breweries?</h1>
-      <div class="mb-5">
-        <p>Here is some common terminology you might encounter when exploring breweries:</p>
-        <h2>Macrobrewery</h2>
+      <h2 class="text-body-emphasis">What are the different kinds of breweries?</h1>
+      <div class="mb-4">
+        <p>Here are some common terminologies you might encounter when exploring breweries:</p>
+        <ul style = "list-style-image: url(/static/img/beer.png);">
+        <li>Macrobrewery</li>
         <p>Macrobreweries are the "big-name" brewing companies whose product can be purchased worldwide.
           They produce millions of barrels of beer per year. The beer from these companies are often seen
           as more quantity than quality focused, have a lighter color and a more watery consistency than most craft beers.</p>
-        <h2>Microbrewery</h2>
+        <li>Microbrewery</li>
         <p>Microbreweries are smaller, oftentimes independently owned breweries selling craft beer.
           They produce less than 15,000 barrels of beer per year which is mostly sold and consumed off-site. Microbreweries
           can sell their beer directly to customers or in a two-tiered or three-tiered selling process.</p>
-        <h2>Regional Brewery</h2>
+        <li>Regional Brewery</li>
         <p>Regional breweries fall in between microbreweries and macrobreweries. They serve beer in a fixed geographical location and produce between 15,000 and 6,000,000 barrels per year.</p>
-        <h2>Nanobrewery</h2>
+        <li>Nanobrewery</li>
         <p>Nanobreweries produce less than 2,000 barrels of beer per year. They are considered
           the starting phase of a brewery before they become microbreweries. Their beer can be produces in batches as small as 3 barrels. </p>
-        <h2>Brewpubs and Gastropubs</h2>
+        <li>Brewpubs and Gastropubs</li>
         <p>Brewpubs and gastropubs are hybrids of breweries and restaurants. The beer is primarly brewed
           to be sold and consumed on-site alongside food. The brewery must sell at least 25% of their product on-site to be considered a brewpub or gastropub.
           Gastropubs place more emphasis on the quality of food than brewpubs, and typically sell more gourmet food items. </p>
-        <h2>Meadery and Cidery</h2>
+        <li>Meadery and Cidery</li>
         <p>Meaderies produce mead, which is an alcoholic beverage created by the fermentation of honey,
           water, and yeast. Cideries produce cider, which is an alcoholic beverage created by the fermentation of apple juice.</p>
-        <h2>Contract Brewery</h2>
-        <p>Contract breweries are breweries that brew their product on equipment that isn't actually owned by the company. Some companies
-          will start off as contract breweries until they can get their own equipment, and other companies may use contract breweries to 
+        <li>Contract Brewery</li>
+        <p>Contract breweries are breweries that brew their product on equipment that isn't actually owned by the company. 
+          Some companies will start off as contract breweries until they can get their own equipment, and other companies may use contract breweries to 
           supplement their productions.</p>
-      
-      <h1 class="text-body-emphasis">Other Information:</h1>
+        </ul>
+        <h3>Other Information:</h3>
       <div class="mb-5">
-        <ul>One barrel of beer is equal to 31 US gallons, or 117 liters.</ul>
-        <ul>Kegs carry about half the amount of beer as a US barrel.</ul>
-        <ul>Craft beer refers to any beer produced by a small, independent brewery. It is made using traditional ingredients and processes,
-          with an emphasis on flavor and innovation.</ul>
+        <p>One barrel of beer is equal to 31 US gallons, or 117 liters.</p>
+        <p>Kegs carry about half the amount of beer as a US barrel.</p>
+        <p>Craft beer refers to any beer produced by a small, independent brewery. </p>
+        <p>It is made using traditional ingredients and processes,
+          with an emphasis on flavor and innovation.</p>
       </div> 
+      <!-- class="text-body-emphasis"> -->
+   
+
         <title>Brewery Bar Chart</title>
           <style>
             * {
               margin: 0;
               padding: 0;
               font-family: sans-serif;
+            }
+              li {
+              border-bottom: 1px solid purple;
+              display: inline;
+            }
+              li:after {
+                content:"";
+                display: block;
             }
             .chartMenu {
               width: 100vw;
@@ -87,7 +102,7 @@
               color: rgb(247, 250, 252);
             }
             .chartMenu p {
-              padding: 10px;
+              padding: 0px;
               font-size: 20px;
             }
             .chartCard {
@@ -96,11 +111,11 @@
               background: rgba(255, 255, 255, 0.6);
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: right;
             }
             .chartBox {
-              width: 60%;
-              padding: 20px;
+              width: 50%;
+              padding: 0px;
               border-radius: 20px;
               border: solid 3px rgb(255, 255, 255);
               background: white;
@@ -131,8 +146,6 @@
         
             const ctx = document.getElementById('myChart');
             d3.json("/data/brewery_untappd_export_MD.json", function (data) {
-        
-        
               console.log(data);
         
           let unique = [...new Set(data.map(item => item.brewery_type))];
@@ -154,59 +167,52 @@
           console.log(count);
         
           new Chart(ctx, {
-              type: 'bar',
+            type: 'pie',
             data: {
             labels: types,
             datasets: [{
-              label: 'Count',
+              label: 'Brewery Count',
               data: count,
-              borderWidth: 2
-            }]
+              borderWidth: 0}]
               },
             backgroundColor: [
-                  'rgba(255, 26, 104, 0.2)', //90% has color
-                  'transparent'
-          ],
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
+                  // 'rgba(255, 26, 104, 0.2)', //90% has color
+                  'transparent'],
+            options: {
+              responsive: true,
+            scales: {y: {
+              display: true,
+              beginAtZero: true,
                   }
                 },
             plugins: {
               tooltip:{
-                enabled:false
-              },
-                //remove the legned box so that the doughnut chart is 
+                enabled:false},
               legend: {
-                display: false
-              }
+                display: true,
+                position: 'right'}
               }
           }
             });
           
               });
             chart.update()
-          </script>
-        </body>
-
-  
-      
-    
+          </script>  
     
     <div class="container">
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item" style="font-size: 1.2pc;"><a href="#"
               class="nav-link px-2 text-body-secondary">Home</a></li>
-          <li class="nav-item" style="font-size: 1.2pc;"><a href="#"
+          <li class="nav-item" style="font-size: 1.2pc;"><a href="breweries.html"
               class="nav-link px-2 text-body-secondary">Breweries</a></li>
-          <li class="nav-item" style="font-size: 1.2pc;"><a href="#"
+          <li class="nav-item" style="font-size: 1.2pc;"><a href="faq.html"
               class="nav-link px-2 text-body-secondary">FAQs</a></li>
-          <li class="nav-item" style="font-size: 1.2pc;"><a href="#"
+          <li class="nav-item" style="font-size: 1.2pc;"><a href="about.html"
               class="nav-link px-2 text-body-secondary">About</a></li>
         </ul>
         <p class="text-center text-body-secondary">© 2023 Data Dynamos, Inc</p>
+      <p><class="text-center a href="https://www.flaticon.com/free-icons/beer" title="beer icons">Beer icons created by Freepik - Flaticon</a></p>
       </footer>
     </div>
 </body>

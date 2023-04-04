@@ -40,13 +40,10 @@ def index():
 def about_us():
     return render_template("about.html")
 
-@app.route("/Breweries.html")
-def breweries():
-    return render_template("Breweries.html")
-
 @app.route("/faq.html")
 def faq():
     return render_template("faq.html")
+
 @app.route("/api/brewery_api_export_MD.json")
 def dataapijson():
     #connect to Mongodb databse
@@ -56,7 +53,6 @@ def dataapijson():
 
     return jsonify(data_api)
 
-
 @app.route("/api/brewery_api.geojson")
 def datageojson():
     with open('data/brewery_api.geojson', 'r', encoding="utf8") as myfile:
@@ -65,10 +61,9 @@ def datageojson():
 
     return jsonify(data_api)
 
-@app.route("/Breweries.html")
-def BreweriesMap():
-
-    return render_template("Breweries.html")
+@app.route("/breweries.html")
+def breweries():
+    return render_template("breweries.html")
 
 
 if __name__ == "__main__":
