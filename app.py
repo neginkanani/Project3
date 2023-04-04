@@ -47,15 +47,29 @@ def breweries():
 @app.route("/faq.html")
 def faq():
     return render_template("faq.html")
-
-@app.route("/api/brewery_untappd_export_MD.json")
-def datajson():
+@app.route("/api/brewery_api_export_MD.json")
+def dataapijson():
     #connect to Mongodb databse
-    with open('data/brewery_untappd_export_MD.json', 'r', encoding="utf8") as myfile:
-        data_untappd = myfile.read()
-        data_untappd= json.loads(data_untappd)
+    with open('data/brewery_api_export_MD.json', 'r', encoding="utf8") as myfile:
+        data_api = myfile.read()
+        data_api= json.loads(data_api)
 
-    return jsonify(data_untappd)
+    return jsonify(data_api)
+
+
+@app.route("/api/brewery_api.geojson")
+def datageojson():
+    with open('data/brewery_api.geojson', 'r', encoding="utf8") as myfile:
+        data_api = myfile.read()
+        data_api= json.loads(data_api)
+
+    return jsonify(data_api)
+
+@app.route("/Breweries.html")
+def BreweriesMap():
+
+    return render_template("Breweries.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

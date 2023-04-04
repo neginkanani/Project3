@@ -49,8 +49,29 @@ function Cities(selectedCiti) {
                 filter: function (feature, layer) {
                     return feature.properties.city == selectedCiti;
                 },
-                style: mapStyle
+                style: mapStyle,
+           
+                onEachFeature: function (feature, layer) 
+                {
+                    layer.bindPopup( "<h3>" + feature.properties.name + "</h3> <hr> <h4>" + 
+                    feature.properties.brewery_type + "</h4> <hr> <h4>" +
+                    feature.properties.city + "</h4> <hr> <h4>" +
+                    feature.properties.country + "</h4> <hr> <h4>" +
+                    feature.properties.address_1 + "</h4>" 
+                    );
+                  
+
+                    // Zoom in while clicking on the marker
+                    layer.on('click', function (e) {
+                      myMap.flyTo(e.latlng, 15)
+                    });
+
+                    }
+
             }).addTo(myMap);
+
+    
+
 
         }
     );
