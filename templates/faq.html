@@ -16,189 +16,72 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-md-4 col-lg-3"> </div>
-      <header class="d-flex justify-content-left py-8">
-        <ul class="nav nav-pills">
-          <li class="nav-item" style="font-size: 1.2pc;"><a href="#" class="nav-link active"
-              aria-current="page">Home</a></li>
-          <li class="nav-item" style="font-size: 1.2pc;"><a href="breweries.html" class="nav-link">Breweries</a>
-          </li>
-          <li class="nav-item" style="font-size: 1.2pc;"><a href="faq.html" class="nav-link">FAQs</a></li>
-          <li class="nav-item" style="font-size: 1.2pc;"><a href="about.html" class="nav-link">About</a></li>
-        </ul>
+    <header class="d-flex justify-content-left py-8">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page" style="color: black;">Home</a></li>
+        <li class="nav-item"><a href="breweries.html" class="nav-link" style="color: black;">Breweries</a></li>
+        <li class="nav-item"><a href="bar_chartjs_lib.html" class="nav-link" style="color: black;">MicroB Info</a></li>
+        <li class="nav-item"><a href="faq.html" class="nav-link" style="color: black;">FAQs</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link" style="color: black;">About</a></li>
+      </ul>
       <hr></hr>
     </header>
-  </div>
-</div>
+
     <!-- Jumbotron -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="well jumbotron text-center w-100" style="background-color: #bd8b41;">
-          <div id="logo"><img src="/static/img/beer.png">
-          <h1 class="mb-5 h2">Frequently Asked Questions</h1>
+          <!-- <div id="logo"><img src="/static/img/beer.png"> -->
+            <h1 style="font-family:georgia,garamond,serif;color:black">Frequently Asked Questions</h1>
 
         </div>
         <!-- <h1> Frequently Asked Questions</h1> -->
       </div>
-      <h2 class="text-body-emphasis">What are the different kinds of breweries?</h1>
-      <div class="mb-4">
-        <p>Here are some common terminologies you might encounter when exploring breweries:</p>
+      <!-- <div class="mb-4"> -->
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7 col-md-4 col-lg-3"> </div>
+        <h2 class="text-body-emphasis">What are the different kinds of breweries?</h1>
+
         <ul style = "list-style-image: url(/static/img/beer.png);">
-        <li>Macrobrewery</li>
+        <li><b>Macrobrewery</b></li>
         <p>Macrobreweries are the "big-name" brewing companies whose product can be purchased worldwide.
           They produce millions of barrels of beer per year. The beer from these companies are often seen
           as more quantity than quality focused, have a lighter color and a more watery consistency than most craft beers.</p>
-        <li>Microbrewery</li>
+        <li><b>Microbrewery</b></li>
         <p>Microbreweries are smaller, oftentimes independently owned breweries selling craft beer.
           They produce less than 15,000 barrels of beer per year which is mostly sold and consumed off-site. Microbreweries
           can sell their beer directly to customers or in a two-tiered or three-tiered selling process.</p>
-        <li>Regional Brewery</li>
+        <li><b>Regional Brewery</b></li>
         <p>Regional breweries fall in between microbreweries and macrobreweries. They serve beer in a fixed geographical location and produce between 15,000 and 6,000,000 barrels per year.</p>
-        <li>Nanobrewery</li>
+        <li><b>Nanobrewery</b></li>
         <p>Nanobreweries produce less than 2,000 barrels of beer per year. They are considered
           the starting phase of a brewery before they become microbreweries. Their beer can be produces in batches as small as 3 barrels. </p>
-        <li>Brewpubs and Gastropubs</li>
+        <li><b>Brewpubs and Gastropubs</b></li>
         <p>Brewpubs and gastropubs are hybrids of breweries and restaurants. The beer is primarly brewed
           to be sold and consumed on-site alongside food. The brewery must sell at least 25% of their product on-site to be considered a brewpub or gastropub.
           Gastropubs place more emphasis on the quality of food than brewpubs, and typically sell more gourmet food items. </p>
-        <li>Meadery and Cidery</li>
+        <li><b>Meadery and Cidery</b></li>
         <p>Meaderies produce mead, which is an alcoholic beverage created by the fermentation of honey,
           water, and yeast. Cideries produce cider, which is an alcoholic beverage created by the fermentation of apple juice.</p>
-        <li>Contract Brewery</li>
+        <li><b>Contract Brewery</b></li>
         <p>Contract breweries are breweries that brew their product on equipment that isn't actually owned by the company. 
           Some companies will start off as contract breweries until they can get their own equipment, and other companies may use contract breweries to 
           supplement their productions.</p>
         </ul>
-        <h3>Other Information:</h3>
-      <div class="mb-5">
-        <p>One barrel of beer is equal to 31 US gallons, or 117 liters.</p>
+        <!-- <h3>Other Information:</h3> -->
+      <!-- <div class="mb-5"-->
+        <!-- <p>One barrel of beer is equal to 31 US gallons, or 117 liters.</p>
         <p>Kegs carry about half the amount of beer as a US barrel.</p>
         <p>Craft beer refers to any beer produced by a small, independent brewery. </p>
         <p>It is made using traditional ingredients and processes,
           with an emphasis on flavor and innovation.</p>
-      </div> 
+      </div>  --> 
+    </div>
       <!-- class="text-body-emphasis"> -->
-   
 
-        <title>Brewery Bar Chart</title>
-          <style>
-            * {
-              margin: 0;
-              padding: 0;
-              font-family: sans-serif;
-            }
-              li {
-              border-bottom: 1px solid purple;
-              display: inline;
-            }
-              li:after {
-                content:"";
-                display: block;
-            }
-            .chartMenu {
-              width: 100vw;
-              height: 40px;
-              background: #f5f0f0;
-              color: rgb(247, 250, 252);
-            }
-            .chartMenu p {
-              padding: 0px;
-              font-size: 20px;
-            }
-            .chartCard {
-              width: 100vw;
-              height: calc(100vh - 40px);
-              background: rgba(255, 255, 255, 0.6);
-              display: flex;
-              align-items: center;
-              justify-content: right;
-            }
-            .chartBox {
-              width: 50%;
-              padding: 0px;
-              border-radius: 20px;
-              border: solid 3px rgb(255, 255, 255);
-              background: white;
-              
-            }
-            </style>
-       
-            </header>
-        
-        <script src="http://d3js.org/d3.v4.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        </head>
-        <body>
       
-        <div id="chartContainer2">
-          <body>
-            <!-- <div class="chartMenu">
-              <p></p> (Chart JS <span id="chartVersion"></span>)</p>
-            </div> -->
-            <div class="chartCard">
-              <div class="chartBox">
-              <canvas id="myChart"></canvas>
-              </div>
-            </div>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-            <script>
-        
-        
-            const ctx = document.getElementById('myChart');
-            d3.json("/data/brewery_untappd_export_MD.json", function (data) {
-              console.log(data);
-        
-          let unique = [...new Set(data.map(item => item.brewery_type))];
-          console.log(unique);
-        
-          //var data = // your data here
-          var categories = data.reduce(function(acc, crime) {
-            if (!acc[crime.brewery_type])   // if current category not in acc object
-              acc[crime.brewery_type] = 1;  // add it to acc with value 1
-              else                        // otherwise (it exists), so
-              acc[crime.brewery_type]++;    // increment it
-            return acc;
-          }, {});
-          console.log(categories);
-          console.log(categories["brewery_type"]);
-          let types = Object.keys(categories);
-          let count = Object.values(categories);
-          console.log(types);
-          console.log(count);
-        
-          new Chart(ctx, {
-            type: 'pie',
-            data: {
-            labels: types,
-            datasets: [{
-              label: 'Brewery Count',
-              data: count,
-              borderWidth: 0}]
-              },
-            backgroundColor: [
-                  // 'rgba(255, 26, 104, 0.2)', //90% has color
-                  'transparent'],
-            options: {
-              responsive: true,
-            scales: {y: {
-              display: true,
-              beginAtZero: true,
-                  }
-                },
-            plugins: {
-              tooltip:{
-                enabled:false},
-              legend: {
-                display: true,
-                position: 'right'}
-              }
-          }
-            });
-          
-              });
-            chart.update()
-          </script>  
-    
     <div class="container">
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">

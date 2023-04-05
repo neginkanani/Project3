@@ -14,9 +14,7 @@ d3.json(url).then(function (x) {
     //fill the dropdown
     for (let i = 0; i < distinctCities.length; i++) {
         d3.select("#selDataset").append("option").text(distinctCities[i]).property("value", distinctCities[i])
-
     }
-
 })
 
 //The base map

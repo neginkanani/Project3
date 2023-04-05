@@ -16,59 +16,74 @@ d3.json(url).then(function(x) {
     for ( let i=0; i<x.length; i++){
         d3.select("#selectpicker").append("option").text(distinctCities[i]).property("value",distinctCities[i] )
         d3.select("#selDataset").append("option").text(distinctTypes[i]).property("value",distinctTypes[i])
-   }
+        d3.select("#selectpicker").append("optgroup").append("label").text(distinctCities[i]).property("value",distinctCities[i] )
+    }
 })
 
-
+//Defining a function that plots the chart and table for Brewery type
 function Type(selectedType){
     d3.json(url).then(function(x) {
         //bar chart
         let breweryType=x.filter(f=>f.brewery_type==selectedType)
             console.log(breweryType)
 
-            let breweries = [];
-            let values = [];
-            let types = [];
-    
-            breweryType.forEach((point)=>{
-                breweries.push(point.brewery_name);
-                values.push(parseFloat(point.brewery_ratings.replace(/[{()}]/g, '')));
-                types.push(point.brewery_type);
-            })
-    
-            // let value = data.filter(result => result._id == brew);
-    
-            // console.log(brewery_name, brewery_type, brewery_ratings);
-    
-            let yticks = breweries.slice(0, 10).reverse();
+//plot the bar chart
+
+let breweries = [];
+        let values = [];
+        let types = [];
+        let place=[]
+
+        breweryType.forEach((point)=>{
+            breweries.push(point.brewery_name);
+            values.push(parseFloat(point.brewery_ratings.replace(/[{()}]/g, '')));
+            types.push(point.brewery_type);
+            place.push(point.brewery_location);
+        })
+
+        let yticks = breweries.slice(0, 10).reverse();
             let xticks = values.slice(0, 10).reverse();
-            let labels = types.slice(0, 10).reverse();
+            let labels = place.slice(0, 10).reverse();
     
             let trace = {
                 x: xticks,
                 y: yticks,
                 text: labels,
                 type: "bar",
-                orientation: "h"
+                orientation: "h",
             };
     
             let layout = {
-                title: "Top 10 Breweries"
+                title: "Top 10 Breweries by Type",
+                width: 500,
+                height: 250,
+                yaxis: {
+                automargin: true
+                },
+                margin: {
+                  l: 100,
+                  r: 0,
+                  b: 50,
+                  t: 50,
+                  pad: 0}
             };
     
             Plotly.newPlot("bar", [trace], layout)
 
 
+//Draw the table
 d3.select("table").remove();
+
 // copyrigh to : https://gist.github.com/jfreels/6733593 and to https://www.htmlgoodies.com/javascript/bring-your-data-to-life-with-d3-js/
     function tabulate(data, columns) {
         var table = d3.select('.col-md-6').append('table')
         //give the table an id
         .attr("id", "BrewType")
         .style("border-collapse", "collapse")
-        .style("border", "2px black solid");
+        .style("border", "2px black solid")
+        .style("background-color","white");
         var thead = table.append('thead')
-        var tbody = table.append('tbody');
+        var	tbody = table.append('tbody');
     
         // append the header row
         thead.append('tr')
@@ -82,6 +97,14 @@ d3.select("table").remove();
         .style("font-weight", "bold")
         .style("text-transform", "uppercase")
 
+            
+
+        //    .on('mouseout', function (d, i) {
+        //         d3.select(this).transition()
+        //              .duration('50')
+        //              .attr('opacity', '1');
+    
+        // create a row for each object in the data
         var rows = tbody.selectAll('tr')
         .data(data)
         .enter()
@@ -118,6 +141,9 @@ d3.select("table").remove();
         .sort(function(a, b) {
                 return d3.ascending(a.brewery_location, b.brewery_location);
         });
+
+
+
              
         });
     }      
@@ -128,49 +154,18 @@ function Citi(selectedCiti){
         let breweryCiti=x.filter(f=>f.brewery_location==selectedCiti)
             console.log(breweryCiti)
 
-            let breweries = [];
-            let values = [];
-            let types = [];
-    
-            breweryCiti.forEach((point)=>{
-                breweries.push(point.brewery_name);
-                values.push(parseFloat(point.brewery_ratings.replace(/[{()}]/g, '')));
-                types.push(point.brewery_type);
-            });
-    
-            // let value = data.filter(result => result._id == brew);
-    
-            // console.log(brewery_name, brewery_type, brewery_ratings);
-    
-            let yticks = breweries.slice(0, 10).reverse();
-            let xticks = values.slice(0, 10).reverse();
-            let labels = types.slice(0, 10).reverse();
-    
-            let trace = {
-                x: xticks,
-                y: yticks,
-                text: labels,
-                type: "bar",
-                orientation: "h"
-            };
-    
-            let layout = {
-                title: "Top 10 Breweries"
-            };
-    
-            Plotly.newPlot("bar", [trace], layout)
             
-
             d3.select("table").remove();
             // copyrigh to : https://gist.github.com/jfreels/6733593 and to https://www.htmlgoodies.com/javascript/bring-your-data-to-life-with-d3-js/
                 function tabulate(data, columns) {
-                    var table = d3.select('.col-md-5').append('table')
+                    var table = d3.select('.col-md-6').append('table')
                     //give the table an id
                     .attr("id", "BrewType")
                     .style("border-collapse", "collapse")
-                    .style("border", "2px black solid");
+                    .style("border", "2px black solid")
+                    .style("background-color","white");
                     var thead = table.append('thead')
-                    var tbody = table.append('tbody');
+                    var	tbody = table.append('tbody');
                 
                     // append the header row
                     thead.append('tr')
@@ -182,8 +177,15 @@ function Citi(selectedCiti){
                     .style("padding", "5px")
                     .style("background-color", "orange")
                     .style("font-weight", "bold")
-                    .style("text-transform", "uppercase")
+                    .style("text-transform", "uppercase");
             
+                        
+            
+                    //    .on('mouseout', function (d, i) {
+                    //         d3.select(this).transition()
+                    //              .duration('50')
+                    //              .attr('opacity', '1');
+                
                     // create a row for each object in the data
                     var rows = tbody.selectAll('tr')
                     .data(data)

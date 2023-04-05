@@ -44,6 +44,10 @@ def about_us():
 def faq():
     return render_template("faq.html")
 
+@app.route("/bar_chartjs_lib.html")
+def bar_chart():
+    return render_template("bar_chartjs_lib.html")
+
 @app.route("/api/brewery_api_export_MD.json")
 def dataapijson():
     #connect to Mongodb databse
