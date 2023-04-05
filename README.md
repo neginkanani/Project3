@@ -13,3 +13,8 @@ https://api.openbrewerydb.org/breweries
 
 
 https://docs.google.com/document/d/1HHYbzLp3E7ewanfxwQkGdJk1-5--xV-L71tMOOCDA-A/edit?usp=sharing
+
+
+<img width="1143" alt="Screen Shot 2023-04-05 at 1 22 41 PM" src="https://user-images.githubusercontent.com/40581033/230066531-11fa9acd-d93e-451e-a1c8-8a8ceed47837.png">
+<img width="1292" alt="Screen Shot 2023-04-05 at 1 22 47 PM" src="https://user-images.githubusercontent.com/40581033/230066552-1daee437-0e48-4ca4-9e6b-5dce1f27f7b3.png">
+<img width="1348" alt="Screen Shot 2023-04-05 at 1 22 53 PM" src="https://user-images.githubusercontent.com/40581033/230066571-83b7d2b1-69d7-4568-9dfb-29d4708d0e8a.png">
