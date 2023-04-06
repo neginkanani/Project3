@@ -1,7 +1,7 @@
 const url = "/api/brewery_api_export_MD.json";
 
 //Set the beer animation
-const frameHeight = 85;
+const frameHeight = 95;
 const frames = 5;
 const div = document.getElementById("animation");
 let frame = 0;
