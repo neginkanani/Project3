@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brewery Doughnut Chart</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 60%;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+
+    #scoreInput {
+      font-size: 35px;
+      font-weight: bolder;
+      text-align: center;
+      border: 0;
+      outline: 0;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup data block
+    const data = {
+      labels: ['Mon', '', ],
+      datasets: [{
+        label: 'Types of Breweries',
+        // two values
+        data: [90, 10],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)', //90% has color
+          'transparent'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)', 
+          'transparent'
+        ],
+        borderWidth: 1,
+        cutout: '95%',
+        borderRadius: 10
+      }]
+    };
+
+    // config 
+    const config = {
+      //typr
+      type: 'doughnut',
+      data,
+      options: {
+        //this is a chartjs command that resizes to the right porportion
+        onResize: (context) => {
+          //extract an input if it exists
+            let scoreInput = document.getElementById("scoreInput");
+            const width = 75;
+            const height = 50;
+            // console.log(context)
+          //if there is no score input-- create one.
+          if (!scoreInput) {
+            scoreInput = document.createElement("input");
+            scoreInput.id = 'scoreInput';
+            //soft coded from the data set
+            //designing the input and placing it appropriately
+            scoreInput.value = context.data.datasets[0].data[0];
+            scoreInput.type = 'number';
+            scoreInput.min = 0;
+            scoreInput.max = 100;
+            scoreInput.style.width = `${width}px`;
+            scoreInput.style.height = `${height}px`;
+            scoreInput.style.position = 'relative'
+            scoreInput.classList.add('score');
+            //append to parent not the child element of canvas
+            context.canvas.parentNode.appendChild(scoreInput)
+          }
+          //if it is creative once then athe above then move box inside
+          //find the midpoint of the page
+          const xPos = context.width / 2 - (width/2);
+          const yPos = context.height / 2 * -1- (height/2);
+          scoreInput.style.left = xPos + 'px';
+          scoreInput.style.top = yPos + 'px';
+
+        },
+    
+        plugins: {
+            tooltip:{
+                enabled:false
+            },
+                //remove the legned box so that the doughnut chart is 
+            legend: {
+              display: false
+            }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    //ge input the chart will trigger based on our input
+    document.getElementById('scoreInput').addEventListener('input', (e)=> {
+      percentage(document.getElementById('scoreInput'), myChart)
+    });
+    //make the input in the center actually change the doughnut
+    function percentage (score, chart){
+      console.log(score.value)
+      //we need to grab the data here in order to move the input
+      const { data } = chart;
+      //fixes the ability to go under 0
+      if (score.value >= 0 && score.value < 100){
+        data.datasets[0].data[0] = score.value;
+        data.datasets[0].data[1] = 100 - score.value;
+      } else if(score.value >= 100 ){
+        data.datasets[0].data[0] = 100;
+        data.datasets[0].data[1] = 0;
+        document.getElementById('scoreInput').value = 100;
+      }else{
+        data.datasets[0].data[0] = 0;
+        data.datasets[0].data[1] = 100;
+        document.getElementById('scoreInput').value = 0;
+
+      }
+      
+      chart.update()
+
+
+    }
+
+
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+.BrewType{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.jumbotron, .jumbotron * {
+    box-sizing: border-box;
+  }
+
+body {
+margin: 1;
+padding: 1;
+}
+
+.jumbotron h1 {
+    color: rgb(9, 9, 9);
+  }
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  html,
+body,
+#map-id {
+  width: 100%;
+  height: 90%;
+  padding: 0;
+  margin: 0;
+}
