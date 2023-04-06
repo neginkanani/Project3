@@ -31,7 +31,6 @@ The high number of Microbreweries can be attributed to lower barriers to entry, 
 Microbreweries are often able to experiment with new beer styles and flavors that may not be commercially viable for larger breweries. 
 If we had more time, we would like to study the demographics of the craft breweries areas and their drinkers.
 
-https://docs.google.com/document/d/1HHYbzLp3E7ewanfxwQkGdJk1-5--xV-L71tMOOCDA-A/edit?usp=sharing
 
 
 <img width="1143" alt="Screen Shot 2023-04-05 at 1 22 41 PM" src="https://user-images.githubusercontent.com/40581033/230066531-11fa9acd-d93e-451e-a1c8-8a8ceed47837.png">
